@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58">
+  <g id="icon-serv08" transform="translate(-3 -3)">
+    <path id="Path_3609" data-name="Path 3609" d="M52,11V43l-4,7H24l-4-7H13V16h9l6-5Z" fill="#898890"/>
+    <g id="Group_85" data-name="Group 85">
+      <path id="Path_3610" data-name="Path 3610" d="M43.5,20.757h2v9.487h-2Z" transform="matrix(0.949, -0.316, 0.316, 0.949, -5.78, 15.381)" fill="#3e3d42"/>
+      <path id="Path_3611" data-name="Path 3611" d="M23.056,21H40.945v2H23.056Z" transform="translate(-6.46 16.633) rotate(-26.565)" fill="#3e3d42"/>
+      <path id="Path_3612" data-name="Path 3612" d="M13,27v4H8V27Z" fill="#3e3d42"/>
+    </g>
+    <path id="Path_3613" data-name="Path 3613" d="M8,33l1,2v7H3V35l1-2V25L3,23V16H9v7L8,25Z" fill="#e0e0e2"/>
+    <path id="Path_3614" data-name="Path 3614" d="M56,19h5V39H56Z" fill="#e0e0e2"/>
+    <path id="Path_3615" data-name="Path 3615" d="M52,26h4v6H52Z" fill="#3e3d42"/>
+    <path id="Path_3616" data-name="Path 3616" d="M37,7h4v4H37Z" fill="#3e3d42"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="4" cy="4" r="4" transform="translate(36 17)" fill="#006df0"/>
+    <path id="Path_3617" data-name="Path 3617" d="M29,3H51V7H29Z" fill="#898890"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" cx="2" cy="2" r="2" transform="translate(38 19)" fill="#3e3d42"/>
+    <path id="Path_3618" data-name="Path 3618" d="M24,35h7v2H24Z" fill="#3e3d42"/>
+    <circle id="Ellipse_11" data-name="Ellipse 11" cx="6" cy="6" r="6" transform="translate(18 25)" fill="#ff5023"/>
+    <circle id="Ellipse_12" data-name="Ellipse 12" cx="3" cy="3" r="3" transform="translate(21 28)" fill="#3e3d42"/>
+    <rect id="Rectangle_661" data-name="Rectangle 661" width="34" height="32" rx="2" transform="translate(27 29)" fill="#ffc740"/>
+    <path id="Path_3619" data-name="Path 3619" d="M32.1,36.1l4,4,2.121-.707.708-2.121-4-4a5.991,5.991,0,0,1,8.578,5.486A3.932,3.932,0,0,0,44.671,41.6l9.815,9.815a3,3,0,1,1-4.243,4.242L40.436,45.85a4.064,4.064,0,0,0-2.9-1.167A5.99,5.99,0,0,1,32.1,36.1Z" fill="#d8d7da"/>
+    <path id="Path_3620" data-name="Path 3620" d="M50.657,32.343a3,3,0,0,1,3,3v11h-6v-11a3,3,0,0,1,3-3Z" transform="translate(42.657 -24.296) rotate(45)" fill="#8cc63e"/>
+    <path id="Path_3621" data-name="Path 3621" d="M40.757,52.071l6.364-6.364-2.828-2.828-6.364,6.364H36.515l-3.536,4.949,2.829,2.829,4.949-3.536Z" fill="#e9e9ea"/>
+  </g>
+</svg>

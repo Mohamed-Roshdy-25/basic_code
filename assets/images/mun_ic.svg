@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="icon_mun" transform="translate(-344 -327)">
+    <path id="square-plus" d="M20,4.167V15.833A4.171,4.171,0,0,1,15.833,20H4.167A4.171,4.171,0,0,1,0,15.833V4.167A4.171,4.171,0,0,1,4.167,0H15.833A4.171,4.171,0,0,1,20,4.167Zm-1.667,0a2.5,2.5,0,0,0-2.5-2.5H4.167a2.5,2.5,0,0,0-2.5,2.5V15.833a2.5,2.5,0,0,0,2.5,2.5H15.833a2.5,2.5,0,0,0,2.5-2.5Z" transform="translate(344 327)" fill="#7b7b7b"/>
+    <g id="Rectangle_692" data-name="Rectangle 692" transform="translate(349 336)" fill="none" stroke="#7b7b7b" stroke-width="1">
+      <rect width="10" height="2" rx="1" stroke="none"/>
+      <rect x="0.5" y="0.5" width="9" height="1" rx="0.5" fill="none"/>
+    </g>
+  </g>
+</svg>

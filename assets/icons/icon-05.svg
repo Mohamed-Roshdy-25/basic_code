@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="118" height="118" viewBox="0 0 118 118">
+  <g id="icon-05" transform="translate(-3 -3.386)">
+    <rect id="Rectangle_656" data-name="Rectangle 656" width="86" height="110" rx="1" transform="translate(3 3.386)" fill="#787680"/>
+    <path id="Path_3586" data-name="Path 3586" d="M3,10H88.728V97.769H3Z" transform="translate(0 7.288)" fill="#e9e9ea"/>
+    <ellipse id="Ellipse_6" data-name="Ellipse 6" cx="33" cy="32.5" rx="33" ry="32.5" transform="translate(13 27.386)" fill="#787680"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" cx="22.5" cy="22.5" r="22.5" transform="translate(23 37.386)" fill="#57a4ff"/>
+    <path id="Path_3587" data-name="Path 3587" d="M57.443,29.22c-20.86.714-23.432,6.552-44.293,7.266a22.452,22.452,0,0,0,44.6-3.633,21.287,21.287,0,0,0-.306-3.633Z" transform="translate(10.568 27.299)" fill="#365e7d"/>
+    <rect id="Rectangle_657" data-name="Rectangle 657" width="69" height="65" rx="2" transform="translate(52 56.386)" fill="#ffc740"/>
+    <path id="Path_3588" data-name="Path 3588" d="M32.715,39.656l8.165,8.165,4.329-1.443,1.445-4.329-8.165-8.165A12.228,12.228,0,0,1,56,45.081a8.026,8.026,0,0,0,2.376,5.8L78.407,70.916a6.123,6.123,0,0,1-8.661,8.658L49.73,59.557a8.3,8.3,0,0,0-5.919-2.382,12.226,12.226,0,0,1-11.1-17.519Z" transform="translate(29.682 30.905)" fill="#d8d7da"/>
+    <path id="Path_3589" data-name="Path 3589" d="M6.123,0a6.123,6.123,0,0,1,6.123,6.123V28.576H0V6.123A6.123,6.123,0,0,1,6.123,0Z" transform="translate(106.045 62.732) rotate(45)" fill="#8cc63e"/>
+    <path id="Path_3590" data-name="Path 3590" d="M48.855,61.641l12.99-12.99-5.772-5.772-12.99,12.99H40.2l-7.217,10.1,5.774,5.774,10.1-7.217Z" transform="translate(31.212 41.519)" fill="#e9e9ea"/>
+    <g id="Group_84" data-name="Group 84" transform="translate(9.123 9.123)">
+      <path id="Path_3591" data-name="Path 3591" d="M6,6h4.082v4.082H6Z" transform="translate(-6 -6)" fill="#91d1f5"/>
+      <path id="Path_3592" data-name="Path 3592" d="M10,6h4.082v4.082H10Z" transform="translate(-1.835 -6)" fill="#91d1f5"/>
+    </g>
+  </g>
+</svg>
