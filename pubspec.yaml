@@ -104,15 +104,15 @@ flutter:
     - assets/icons/
 
   fonts:
-    - family: Roboto
+    - family: Tajawal
       fonts:
-        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Tajawal-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Tajawal-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Tajawal-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Tajawal-Light.ttf
           weight: 300
 
   # To add assets to your application, add an assets section, like this:

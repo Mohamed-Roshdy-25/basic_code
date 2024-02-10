@@ -9,7 +9,7 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color)
       fontWeight: fontWeight);
 }
 
-// medium style
+// light style
 
 TextStyle getLightStyle({required double fontSize, required Color color})
 {
@@ -28,12 +28,6 @@ TextStyle getRegularStyle({required double fontSize, required Color color})
 TextStyle getMediumStyle({required double fontSize , required Color color})
 {
   return _getTextStyle(fontSize, FontWeightManager.medium, color);
-}
-
-// semiBold style
-
-TextStyle getSemiBoldStyle({required double fontSize , required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
 }
 
 // bold style
