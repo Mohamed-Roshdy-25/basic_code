@@ -1,7 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:basic_code_for_any_project/app/extensions.dart';
 import 'package:basic_code_for_any_project/presentation/resources/color_manager.dart';
-import 'package:basic_code_for_any_project/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,6 +8,7 @@ class DefaultFormField extends StatelessWidget {
   final TextEditingController controller;
   final String? svgIconPath;
   final String? hintText;
+  final String? errorText;
   final TextInputType? keyboardType;
   final bool obscureText;
   final Widget? suffixIcon;
@@ -24,10 +23,11 @@ class DefaultFormField extends StatelessWidget {
       this.keyboardType,
       this.obscureText = false,
       this.suffixIcon,
-      this.hintText, this.enabled,
+      this.hintText,
+      this.enabled,
       this.onTap,
-        this.disableHelperText = false
-      });
+      this.disableHelperText = false,
+      this.errorText});
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +42,22 @@ class DefaultFormField extends StatelessWidget {
           ?.copyWith(color: ColorManager.primary),
       validator: (value) {
         if ((value?.isEmpty).orFalse()) {
-          return AppStrings.textFieldError.tr();
+          return errorText;
         }
         return null;
       },
       obscureText: obscureText,
       decoration: InputDecoration(
         helperText: disableHelperText ? null : '',
-        prefixIcon: svgIconPath != null? Container(
-            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
-            child: SvgPicture.asset(
-              svgIconPath.orEmpty(),
-              fit: BoxFit.fill,
-            )) : null,
+        prefixIcon: svgIconPath != null
+            ? Container(
+                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
+                child: SvgPicture.asset(
+                  svgIconPath.orEmpty(),
+                  fit: BoxFit.fill,
+                ))
+            : null,
         suffixIcon: suffixIcon,
-
         hintText: hintText,
       ),
     );
