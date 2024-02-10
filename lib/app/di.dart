@@ -1,3 +1,4 @@
+import 'package:basic_code_for_any_project/presentation/bloc/auth/auth_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:basic_code_for_any_project/app/app_prefs.dart';
@@ -33,4 +34,6 @@ Future<void> initAppModule() async {
 
   // repository
   instance.registerLazySingleton<Repository>(() => RepositoryImpl());
+
+  instance.registerLazySingleton<AuthCubit>(() => AuthCubit());
 }
