@@ -23,7 +23,11 @@ class _MyAppState extends State<MyApp> {
 
   final AppPreferences _appPreferences = instance<AppPreferences>();
 
-
+  @override
+  void didChangeDependencies() {
+    _appPreferences.getLocale().then((locale) => context.setLocale(locale));
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
