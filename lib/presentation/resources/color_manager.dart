@@ -10,4 +10,6 @@ class ColorManager{
   static Color black = const Color(0xff000000);
   static Color red = const Color(0xffe81e23);
   static Color grey = const Color(0xff909dad);
+  static Color shimmerBaseColor = const Color(0xfff2f4f5);
+  static Color shimmerHighlightColor = const Color(0xffffffff);
 }

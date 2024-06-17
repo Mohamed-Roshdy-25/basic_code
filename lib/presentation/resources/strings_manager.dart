@@ -9,4 +9,6 @@ class AppStrings {
   static const String loading = "please wait...";
   static const String tryAgain = "Try again";
   static const String ok = "ok";
+  static const String loginFirst = "loginFirst";
+  static const String login = "login";
 }

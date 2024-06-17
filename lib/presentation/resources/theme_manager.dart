@@ -8,28 +8,13 @@ class ThemeManager {
   static ThemeData getTheme() {
     return ThemeData(
       fontFamily: FontConstants.fontFamily,
-      colorScheme: ColorScheme.light(secondary: ColorManager.primary),
+      colorScheme: ColorScheme.fromSeed(seedColor: ColorManager.primary),
       scaffoldBackgroundColor: ColorManager.white,
       appBarTheme: AppBarTheme(
         color: ColorManager.white,
+        backgroundColor: ColorManager.white,
         elevation: 0,
       ),
-      brightness: Brightness.light,
-      // textTheme: TextTheme(
-      //   displayLarge: getBoldStyle(color: ColorManager.blackText, fontSize: FontSize.s35),
-      //   headlineLarge: getBoldStyle(color: ColorManager.blackText, fontSize: FontSize.s20),
-      //   headlineMedium: getMediumStyle(color: ColorManager.blackText, fontSize: FontSize.s20),
-      //   headlineSmall: getRegularStyle(color: ColorManager.white, fontSize: FontSize.s18),
-      //   titleLarge:getBoldStyle(color: ColorManager.white, fontSize: FontSize.s18),
-      //   titleMedium: getMediumStyle(color: ColorManager.white, fontSize: FontSize.s16),
-      //   titleSmall: getRegularStyle(color: ColorManager.blue, fontSize: FontSize.s14),
-      //   bodyLarge: getBoldStyle(color: ColorManager.blue, fontSize: FontSize.s15),
-      //   bodyMedium: getMediumStyle(color: ColorManager.eyeColor, fontSize: FontSize.s14),
-      //   bodySmall: getRegularStyle(color: ColorManager.greyText, fontSize: FontSize.s12),
-      //   labelLarge: getLightStyle(color: ColorManager.blue, fontSize: FontSize.s20),
-      //   labelMedium: getLightStyle(color: ColorManager.blackText,fontSize: FontSize.s16,),
-      //   labelSmall: getRegularStyle(color: ColorManager.blue, fontSize: FontSize.s10),
-      // ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle:
         getRegularStyle(color: ColorManager.grey, fontSize: 12.sp),
