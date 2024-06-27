@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 
 class ColorManager{
-  static Color primary = const Color(0xff009418);
-  static Color lightGreen = const Color(0xff27a43b);
-  static Color successGreen = const Color(0xff00ce21);
-  static Color textColor = const Color(0xff3d4c5e);
-  static Color white = const Color(0xffffffff);
-  static Color black = const Color(0xff000000);
-  static Color red = const Color(0xffe81e23);
-  static Color grey = const Color(0xff909dad);
-  static Color shimmerBaseColor = const Color(0xfff2f4f5);
-  static Color shimmerHighlightColor = const Color(0xffffffff);
+  static const Color primary = Color(0xff009418);
+  static const Color lightGreen = Color(0xff27a43b);
+  static const Color successGreen = Color(0xff00ce21);
+  static const Color textColor = Color(0xff3d4c5e);
+  static const Color white = Color(0xffffffff);
+  static const Color black = Color(0xff000000);
+  static const Color red = Color(0xffe81e23);
+  static const Color grey = Color(0xff909dad);
+  static const Color shimmerBaseColor = Color(0xfff2f4f5);
+  static const Color shimmerHighlightColor = Color(0xffffffff);
 }

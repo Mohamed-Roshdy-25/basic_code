@@ -11,4 +11,5 @@ class AppStrings {
   static const String ok = "ok";
   static const String loginFirst = "loginFirst";
   static const String login = "login";
+  static const String textFieldError = "textFieldError";
 }

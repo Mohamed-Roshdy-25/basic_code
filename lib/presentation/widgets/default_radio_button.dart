@@ -35,9 +35,9 @@ class _DefaultRadioButtonState extends State<DefaultRadioButton> {
           Container(
             padding: const EdgeInsets.all(3),
             decoration: BoxDecoration(
-              border: Border.all(color: widget.borderColor),
-              color: Colors.transparent,
-              shape: BoxShape.circle
+                border: Border.all(color: widget.borderColor),
+                color: Colors.transparent,
+                shape: BoxShape.circle
             ),
             child: AnimatedCrossFade(
               duration: const Duration(milliseconds: 500),
@@ -59,15 +59,15 @@ class _DefaultRadioButtonState extends State<DefaultRadioButton> {
           ),
           SizedBox(width: 10.w,),
           if(widget.title.isNotEmpty)
-          Expanded(child: Text(widget.title,style: widget.titleStyle,)),
+            Expanded(child: Text(widget.title,style: widget.titleStyle,)),
           if(widget.titleWidget != null)
             widget.titleWidget!,
           if(widget.iconPath.isNotEmpty)
-          const Spacer(),
+            const Spacer(),
           if(widget.iconPath.isNotEmpty)
-          InkWell(
-            onTap: widget.iconOnTap,
-              child: SvgPicture.asset(widget.iconPath,width: 20.w,height: 20.h,color: widget.iconColor,)),
+            InkWell(
+                onTap: widget.iconOnTap,
+                child: SvgPicture.asset(widget.iconPath,width: 20.w,height: 20.h,color: widget.iconColor,)),
         ],
       ),
     );

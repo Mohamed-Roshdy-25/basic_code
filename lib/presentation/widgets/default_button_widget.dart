@@ -34,23 +34,23 @@ class DefaultButtonWidget extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.sp),
           ),
         ),
-        padding: const MaterialStatePropertyAll(EdgeInsets.zero),
-        minimumSize: MaterialStateProperty.all(
+        padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+        minimumSize: WidgetStateProperty.all(
           Size(width.w, height.h),
         ),
-        overlayColor: MaterialStatePropertyAll(withBorder
+        overlayColor: WidgetStatePropertyAll(withBorder
             ? ColorManager.primary.withOpacity(.1)
             : ColorManager.white.withOpacity(.3)),
         backgroundColor:
-            MaterialStateProperty.all(withBorder ? Colors.transparent : color),
-        shadowColor: MaterialStateProperty.all(Colors.transparent),
+            WidgetStateProperty.all(withBorder ? Colors.transparent : color),
+        shadowColor: WidgetStateProperty.all(Colors.transparent),
         side: withBorder
-            ? MaterialStatePropertyAll(BorderSide(color: ColorManager.lightGreen))
+            ? const WidgetStatePropertyAll(BorderSide(color: ColorManager.lightGreen))
             : null,
       ),
       child: Row(
@@ -63,6 +63,7 @@ class DefaultButtonWidget extends StatelessWidget {
             width: 22.w,
             fit: BoxFit.fill,
             color: iconColor,
+              // colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn)
           ),
           if(isIcon&&isText)
           SizedBox(width: 20.w,),

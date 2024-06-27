@@ -1,1 +1,10 @@
-{}
+{
+  "tryAgain": "حاول مرة أخري",
+  "noInternetError": "لا يوجد إتصال بالإنترنت",
+  "unKnownError": "حدث خطأ ما, من فضلك أعد المحاولة",
+  "loginFirst": "يجب تسجيل الدخول أولا",
+  "thisFieldIsRequired": "هذا الحقل مطلوب",
+  "add": "إضافة",
+  "cancel": "إلغاء",
+  "textFieldError": "يجب ملئ هذا الحقل"
+}

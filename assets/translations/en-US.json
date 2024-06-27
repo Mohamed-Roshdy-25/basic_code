@@ -1,1 +1,10 @@
-{}
+{
+  "tryAgain": "Try again",
+  "noInternetError": "No Internet Connection",
+  "unKnownError": "UnKnown Error, Please try Again",
+  "loginFirst": "you must login first",
+  "thisFieldIsRequired": "This Field Is Required",
+  "add": "Add",
+  "cancel": "Cancel",
+  "textFieldError": "This field is required"
+}
