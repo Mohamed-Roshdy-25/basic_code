@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class DefaultFormField extends StatelessWidget {
   final TextEditingController controller;
-  final String? svgIconPath;
+  final String? prefixIconPath;
   final String? hintText;
   final TextInputType? keyboardType;
   final bool obscureText;
@@ -15,18 +15,20 @@ class DefaultFormField extends StatelessWidget {
   final bool? enabled;
   final VoidCallback? onTap;
   final bool disableHelperText;
+  final double? borderRadius;
+  final bool isUnderLine;
 
   DefaultFormField(
       {super.key,
         required this.controller,
-        this.svgIconPath,
+        this.prefixIconPath,
         this.keyboardType,
         this.obscureText = false,
         this.suffixIcon,
         this.hintText,
         this.enabled,
         this.onTap,
-        this.disableHelperText = false});
+        this.disableHelperText = false, this.borderRadius, this.isUnderLine = false});
 
   final FocusNode _focusNode = FocusNode();
 
@@ -52,16 +54,36 @@ class DefaultFormField extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         helperText: disableHelperText ? null : '',
-        prefixIcon: svgIconPath != null
+        prefixIcon: prefixIconPath != null
             ? Container(
             padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
             child: SvgPicture.asset(
-              svgIconPath!,
+              prefixIconPath!,
               fit: BoxFit.fill,
             ))
             : null,
         suffixIcon: suffixIcon,
         hintText: hintText,
+        focusedBorder: isUnderLine ? const UnderlineInputBorder(borderSide: BorderSide(color: ColorManager.primary),) : OutlineInputBorder(
+          borderRadius: BorderRadius.circular(borderRadius??8.sp),
+          borderSide: const BorderSide(color: ColorManager.primary),
+        ),
+        enabledBorder: isUnderLine ? const UnderlineInputBorder(borderSide: BorderSide(color: ColorManager.primary),) : OutlineInputBorder(
+          borderRadius: BorderRadius.circular(borderRadius??8.sp),
+          borderSide: const BorderSide(color: ColorManager.primary),
+        ),
+        errorBorder: isUnderLine ? const UnderlineInputBorder(borderSide: BorderSide(color: ColorManager.red),) : OutlineInputBorder(
+          borderRadius: BorderRadius.circular(borderRadius??8.sp),
+          borderSide: BorderSide(color: ColorManager.red, width: 2.w),
+        ),
+        focusedErrorBorder: isUnderLine ? const UnderlineInputBorder(borderSide: BorderSide(color: ColorManager.red),) : OutlineInputBorder(
+          borderRadius: BorderRadius.circular(borderRadius??8.sp),
+          borderSide: BorderSide(color: ColorManager.red, width: 2.w),
+        ),
+        disabledBorder: isUnderLine ? const UnderlineInputBorder(borderSide: BorderSide(color: ColorManager.grey),) : OutlineInputBorder(
+          borderRadius: BorderRadius.circular(borderRadius??8.sp),
+          borderSide: BorderSide(color: ColorManager.grey, width: 2.w),
+        ),
       ),
     );
   }
