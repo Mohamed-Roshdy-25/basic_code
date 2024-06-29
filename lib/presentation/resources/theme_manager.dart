@@ -11,9 +11,22 @@ class ThemeManager {
       colorScheme: ColorScheme.fromSeed(seedColor: ColorManager.primary),
       scaffoldBackgroundColor: ColorManager.white,
       appBarTheme: AppBarTheme(
-        color: ColorManager.white,
-        backgroundColor: ColorManager.white,
-        elevation: 0,
+          elevation: 0,
+          surfaceTintColor: ColorManager.white,
+          scrolledUnderElevation: 10,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20.r),
+                bottomRight: Radius.circular(20.r),
+              )
+          ),
+          shadowColor: ColorManager.grey,
+          backgroundColor: ColorManager.white
+      ),
+      elevatedButtonTheme: const ElevatedButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: WidgetStatePropertyAll(Size.zero),
+        )
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle:
@@ -25,11 +38,11 @@ class ThemeManager {
         contentPadding: EdgeInsets.fromLTRB(20.w, 10.h, 20.w, 10.h),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.sp),
-          borderSide: BorderSide(color: ColorManager.lightGreen),
+          borderSide: const BorderSide(color: ColorManager.lightGreen),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.sp),
-          borderSide: BorderSide(color: ColorManager.lightGreen),
+          borderSide: const BorderSide(color: ColorManager.lightGreen),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.sp),

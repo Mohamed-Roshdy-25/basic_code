@@ -24,7 +24,7 @@ class AppPreferences {
     }
     else
     {
-      return LanguageType.ENGLISH.getValue();
+      return LanguageType.ARABIC.getValue();
     }
   }
 

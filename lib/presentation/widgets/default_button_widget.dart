@@ -7,7 +7,7 @@ class DefaultButtonWidget extends StatelessWidget {
   final Function() onPressed;
   final String text;
   final double width;
-  final double height;
+  final double? height;
   final bool withBorder;
   final bool isIcon;
   final bool isText;
@@ -15,18 +15,21 @@ class DefaultButtonWidget extends StatelessWidget {
   final Color? color;
   final Color ?textColor ;
   final Color ?iconColor ;
+  final double? radius;
+  final double? horizontalPadding;
+  final double? verticalPadding;
   const DefaultButtonWidget(
       {super.key,
-      required this.onPressed,
-      this.text = '',
-      this.width = double.infinity,
-      this.withBorder = false,
-      this.isIcon = false,
-      this.svgPath = '',
-      this.color, this.isText = true, 
-      this.height = 40,
-      this.textColor,
-      this.iconColor
+        required this.onPressed,
+        this.text = '',
+        this.width = double.infinity,
+        this.withBorder = false,
+        this.isIcon = false,
+        this.svgPath = '',
+        this.color, this.isText = true,
+        this.height,
+        this.textColor,
+        this.iconColor, this.radius, this.horizontalPadding, this.verticalPadding
       });
 
   @override
@@ -36,18 +39,16 @@ class DefaultButtonWidget extends StatelessWidget {
       style: ButtonStyle(
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.sp),
+            borderRadius: BorderRadius.circular(radius??10.sp),
           ),
         ),
-        padding: const WidgetStatePropertyAll(EdgeInsets.zero),
-        minimumSize: WidgetStateProperty.all(
-          Size(width.w, height.h),
-        ),
+        padding: WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: verticalPadding??10.h,horizontal: horizontalPadding??15.w)),
         overlayColor: WidgetStatePropertyAll(withBorder
             ? ColorManager.primary.withOpacity(.1)
             : ColorManager.white.withOpacity(.3)),
+        minimumSize: horizontalPadding == null ? WidgetStatePropertyAll(Size(double.infinity,40.h)) : null,
         backgroundColor:
-            WidgetStateProperty.all(withBorder ? Colors.transparent : color),
+        WidgetStateProperty.all(withBorder ? Colors.transparent : color),
         shadowColor: WidgetStateProperty.all(Colors.transparent),
         side: withBorder
             ? const WidgetStatePropertyAll(BorderSide(color: ColorManager.lightGreen))
@@ -57,31 +58,34 @@ class DefaultButtonWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if(isIcon)
-          SvgPicture.asset(
-            svgPath,
-            height: 22.h,
-            width: 22.w,
-            fit: BoxFit.fill,
-            color: iconColor,
+            SvgPicture.asset(
+              svgPath,
+              height: 22.h,
+              width: 22.w,
+              fit: BoxFit.fill,
+              color: iconColor,
               // colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn)
-          ),
+            ),
           if(isIcon&&isText)
-          SizedBox(width: 20.w,),
+            SizedBox(width: 20.w,),
           if(isText)
-          Text(
-            text,
-            style: textColor !=null ?
-            Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: textColor,fontSize: 14.sp)
-            :
-            Theme.of(context)
-                .textTheme
-                .titleMedium
-                ?.copyWith(color: 
+            Flexible(
+              child: Text(
+                text,
+                textAlign: TextAlign.center,
+                style: textColor !=null ?
+                Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(color: textColor,fontSize: 14.sp)
+                    :
+                Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(color:
                 withBorder ? ColorManager.primary : null,fontSize: 14.sp),
-          ),
+              ),
+            ),
         ],
       ),
     );
