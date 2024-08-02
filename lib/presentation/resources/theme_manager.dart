@@ -37,23 +37,23 @@ class ThemeManager {
         filled: true,
         contentPadding: EdgeInsets.fromLTRB(20.w, 10.h, 20.w, 10.h),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide: const BorderSide(color: ColorManager.lightGreen),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide: const BorderSide(color: ColorManager.lightGreen),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(color: ColorManager.red, width: 2.w),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(color: ColorManager.red, width: 2.w),
         ),
         disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.sp),
+          borderRadius: BorderRadius.circular(8.r),
           borderSide: BorderSide(color: ColorManager.grey, width: 2.w),
         ),
       ),

@@ -14,8 +14,9 @@ class DefaultDropdownMenuWidget extends StatefulWidget {
   final bool withSuffixIcon;
   final double? width;
   final Color? fillColor;
+  final Color? borderColor;
   final TextEditingController? controller;
-  final Widget? label;
+  final String? text;
   final dynamic selectedValue;
   const DefaultDropdownMenuWidget(
       {super.key,
@@ -25,11 +26,11 @@ class DefaultDropdownMenuWidget extends StatefulWidget {
       required this.hintText,
       this.enabled = true,
       this.controller,
-      this.width = 300,
+      this.width,
       this.fillColor,
       this.withSuffixIcon = true,
-      this.label,
-      required this.selectedValue});
+      this.text,
+      required this.selectedValue, this.borderColor});
 
   @override
   State<DefaultDropdownMenuWidget> createState() =>
@@ -68,10 +69,7 @@ class _DefaultDropdownMenuWidgetState extends State<DefaultDropdownMenuWidget> {
                       ? Container(
                           padding: EdgeInsets.symmetric(
                               vertical: 2.h, horizontal: 2.w),
-                          child: SvgPicture.asset(
-                            ImageAssets.logo,
-                            fit: BoxFit.fill,
-                          ),
+                          child: const Icon(Icons.keyboard_arrow_down,color: ColorManager.black,),
                         )
                       : const Text(''),
                 ),
@@ -99,17 +97,13 @@ class _DefaultDropdownMenuWidgetState extends State<DefaultDropdownMenuWidget> {
                 onChanged: widget.onSelected,
                 buttonStyleData: ButtonStyleData(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                   width: widget.width,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.sp),
+                      borderRadius: BorderRadius.circular(8.sp),
                       color: widget.fillColor,
-                      border: const Border.symmetric(
-                        vertical: BorderSide(
-                          color: ColorManager.grey,
-                        ),
-                        horizontal: BorderSide(color: ColorManager.grey),
-                      )),
+                    border: Border.all(color: widget.borderColor??ColorManager.grey),
+                  ),
                 ),
                 dropdownStyleData: DropdownStyleData(
                   maxHeight: 200.h,
@@ -170,89 +164,40 @@ class _DefaultDropdownMenuWidgetState extends State<DefaultDropdownMenuWidget> {
               ),
             ),
           )
-        : DropdownMenu(
-            controller: widget.controller,
-            textStyle: Theme.of(context)
-                .textTheme
-                .bodySmall
-                ?.copyWith(color: ColorManager.primary),
-            onSelected: widget.onSelected,
-            width: widget.width,
-            enabled: widget.enabled,
-            hintText: widget.hintText,
-            label: widget.label,
-            menuHeight: 200.h,
-            leadingIcon: widget.leadingIcon == null
-                ? null
-                : Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
-                    child: SvgPicture.asset(
-                      widget.leadingIcon!,
-                      fit: BoxFit.fill,
-                    )),
-            trailingIcon: widget.withSuffixIcon
-                ? Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
-                    child: SvgPicture.asset(
-                      ImageAssets.logo,
-                      fit: BoxFit.fill,
-                    ))
-                : const Text(''),
-            dropdownMenuEntries: widget.items
-                .map((e) => DropdownMenuEntry(value: e.id, label: e.name))
-                .toList(),
-            inputDecorationTheme: InputDecorationTheme(
-              filled: true,
-              fillColor: widget.fillColor,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.sp),
-                borderSide: const BorderSide(color: ColorManager.grey),
-              ),
-              disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15.sp),
-                borderSide: const BorderSide(color: ColorManager.grey),
+        : Container(
+      padding: EdgeInsets.symmetric(vertical: 15.h,horizontal: 10.w),
+      decoration: BoxDecoration(
+        color: ColorManager.white,
+        borderRadius: BorderRadius.circular(15.r),
+        border: Border.all(color: ColorManager.grey),
+      ),
+      child: Row(
+        children: [
+          if(widget.leadingIcon != null)
+            Container(
+                padding:
+                EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
+                child: SvgPicture.asset(
+                  widget.leadingIcon!,
+                  fit: BoxFit.fill,
+                )),
+          Text(widget.text??widget.hintText,style: Theme.of(context)
+              .textTheme
+              .bodySmall
+              ?.copyWith(color: widget.text == null ? ColorManager.grey : ColorManager.black),),
+          if(widget.withSuffixIcon)
+            const Spacer(),
+          if(widget.withSuffixIcon)
+            Container(
+              decoration: const BoxDecoration(
+                  color: ColorManager.primary, shape: BoxShape.circle),
+              child: const Icon(
+                Icons.keyboard_arrow_down,
+                color: ColorManager.white,
               ),
             ),
-          );
+        ],
+      ),
+    );
   }
-  // @override
-  // Widget build(BuildContext context) {
-  //   return DropdownMenu(
-  //       controller: widget.controller,
-  //       textStyle: Theme.of(context).textTheme.bodySmall?.copyWith(color: ColorManager.blue),
-  //       onSelected: widget.onSelected,
-  //       width: widget.width.w,
-  //       enabled: widget.enabled,
-  //       hintText: widget.hintText,
-  //       label: widget.label,
-  //       menuHeight: 200.h,
-  //       leadingIcon: widget.leadingIcon == null ? null :  Container(
-  //           padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
-  //           child: SvgPicture.asset(
-  //             widget.leadingIcon!,
-  //             fit: BoxFit.fill,
-  //           )),
-  //       trailingIcon: widget.withSuffixIcon ? Container(
-  //           padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
-  //           child: SvgPicture.asset(
-  //             ImageAssets.downIc,
-  //             fit: BoxFit.fill,
-  //           )) : const Text(''),
-  //       dropdownMenuEntries: widget.items.map((e) => DropdownMenuEntry(value: e.id, label: e.name)).toList(),
-  //       inputDecorationTheme: InputDecorationTheme(
-  //       filled: true,
-  //       fillColor: widget.fillColor,
-  //       enabledBorder: OutlineInputBorder(
-  //         borderRadius: BorderRadius.circular(15.sp),
-  //         borderSide: BorderSide(color: ColorManager.grey),
-  //       ),
-  //       disabledBorder: OutlineInputBorder(
-  //         borderRadius: BorderRadius.circular(15.sp),
-  //         borderSide: BorderSide(color: ColorManager.grey),
-  //       ),
-  //     ),
-  //   );
-  // }
 }

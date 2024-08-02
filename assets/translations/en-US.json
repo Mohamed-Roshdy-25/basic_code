@@ -3,8 +3,11 @@
   "noInternetError": "No Internet Connection",
   "unKnownError": "UnKnown Error, Please try Again",
   "loginFirst": "you must login first",
-  "thisFieldIsRequired": "This Field Is Required",
+  "thisFieldIsRequired": "This field is required",
   "add": "Add",
   "cancel": "Cancel",
-  "textFieldError": "This field is required"
+  "save": "Save",
+  "textFieldError": "This field is required",
+  "showLess": "show less",
+  "showMore": "show more..."
 }

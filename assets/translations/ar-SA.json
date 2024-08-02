@@ -6,5 +6,8 @@
   "thisFieldIsRequired": "هذا الحقل مطلوب",
   "add": "إضافة",
   "cancel": "إلغاء",
-  "textFieldError": "يجب ملئ هذا الحقل"
+  "save": "حفظ",
+  "textFieldError": "يجب ملئ هذا الحقل",
+  "showLess": "عرض اقل",
+  "showMore": "...عرض المزيد"
 }

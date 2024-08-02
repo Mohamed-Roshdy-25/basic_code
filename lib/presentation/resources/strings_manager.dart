@@ -12,4 +12,9 @@ class AppStrings {
   static const String loginFirst = "loginFirst";
   static const String login = "login";
   static const String textFieldError = "textFieldError";
+  static const String save = "save";
+  static const String cancel = "cancel";
+  static const String add = "add";
+  static const String showMore = "showMore";
+  static const String showLess = "showLess";
 }

@@ -1,4 +1,5 @@
 import 'package:basic_code_for_any_project/presentation/resources/color_manager.dart';
+import 'package:basic_code_for_any_project/presentation/resources/styles_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,16 +9,24 @@ class DefaultButtonWidget extends StatelessWidget {
   final String text;
   final double width;
   final double? height;
+  final double? fontSize;
   final bool withBorder;
+  final bool isUnderLine;
   final bool isIcon;
   final bool isText;
+  final bool isLoading;
+  final bool textFirst;
   final String svgPath;
   final Color? color;
+  final Color? underLineColor;
   final Color ?textColor ;
   final Color ?iconColor ;
+  final Color? borderColor;
   final double? radius;
+  final double? iconSize;
   final double? horizontalPadding;
   final double? verticalPadding;
+  final TextStyle? textStyle;
   const DefaultButtonWidget(
       {super.key,
         required this.onPressed,
@@ -29,18 +38,29 @@ class DefaultButtonWidget extends StatelessWidget {
         this.color, this.isText = true,
         this.height,
         this.textColor,
-        this.iconColor, this.radius, this.horizontalPadding, this.verticalPadding
+        this.iconColor,
+        this.radius,
+        this.horizontalPadding,
+        this.verticalPadding,
+        this.borderColor,
+        this.isUnderLine = false,
+        this.fontSize,
+        this.underLineColor,
+        this.iconSize,
+        this.textFirst = false,
+        this.textStyle,
+        this.isLoading = false,
       });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: isLoading ? null : onPressed,
       style: ButtonStyle(
-        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(radius??10.sp),
-          ),
+        shape: WidgetStatePropertyAll( isIcon && !isText ? const CircleBorder() :
+        !isUnderLine ? RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius??10.sp),
+        ) : LinearBorder.bottom(side: BorderSide(color: underLineColor??ColorManager.grey)),
         ),
         padding: WidgetStatePropertyAll(EdgeInsets.symmetric(vertical: verticalPadding??10.h,horizontal: horizontalPadding??15.w)),
         overlayColor: WidgetStatePropertyAll(withBorder
@@ -48,24 +68,17 @@ class DefaultButtonWidget extends StatelessWidget {
             : ColorManager.white.withOpacity(.3)),
         minimumSize: horizontalPadding == null ? WidgetStatePropertyAll(Size(double.infinity,40.h)) : null,
         backgroundColor:
-        WidgetStateProperty.all(withBorder ? Colors.transparent : color),
+        WidgetStateProperty.all(color ?? Colors.transparent),
         shadowColor: WidgetStateProperty.all(Colors.transparent),
         side: withBorder
-            ? const WidgetStatePropertyAll(BorderSide(color: ColorManager.lightGreen))
+            ? WidgetStatePropertyAll(BorderSide(color: borderColor??ColorManager.lightGreen))
             : null,
       ),
-      child: Row(
+      child: isLoading? const Center(child: CircularProgressIndicator(color: Colors.white,),) : Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if(isIcon)
-            SvgPicture.asset(
-              svgPath,
-              height: 22.h,
-              width: 22.w,
-              fit: BoxFit.fill,
-              color: iconColor,
-              // colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn)
-            ),
+          if(isIcon&&!textFirst)
+            _svgIcon(),
           if(isIcon&&isText)
             SizedBox(width: 20.w,),
           if(isText)
@@ -73,21 +86,26 @@ class DefaultButtonWidget extends StatelessWidget {
               child: Text(
                 text,
                 textAlign: TextAlign.center,
-                style: textColor !=null ?
-                Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(color: textColor,fontSize: 14.sp)
-                    :
-                Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(color:
-                withBorder ? ColorManager.primary : null,fontSize: 14.sp),
+                style: textStyle??getBoldStyle(fontSize: fontSize??20.sp, color: textColor??ColorManager.primary),
               ),
             ),
+          if(isIcon&&textFirst)
+            SizedBox(width: 20.w,),
+          if(isIcon&&textFirst)
+            _svgIcon(),
         ],
       ),
+    );
+  }
+
+  Widget _svgIcon(){
+    return SvgPicture.asset(
+      svgPath,
+      height: iconSize??22.h,
+      width: iconSize??22.w,
+      fit: BoxFit.fill,
+      color: iconColor,
+      // colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn)
     );
   }
 }

@@ -11,7 +11,7 @@ class DefaultExpansionTile extends StatefulWidget {
   final String name;
   final String image;
   final List options;
-  final void Function()? onTap;
+  final ValueChanged<int>? onTap;
 
   const DefaultExpansionTile({super.key, required this.name, required this.image, required this.options, this.onTap});
 
@@ -54,7 +54,7 @@ class _DefaultExpansionTileState extends State<DefaultExpansionTile> {
   }
 
   Widget _leading() {
-    return Image.network(widget.image,width: 30.w,height: 30.w,errorBuilder: (context, error, stackTrace) => SizedBox(width: 30.w,height: 30.w,),);
+    return Image.network(widget.image,width: 30.w,height: 30.h,errorBuilder: (context, error, stackTrace) => SizedBox(width: 30.w,height: 30.w,),);
   }
 
   Widget _title(){
@@ -72,7 +72,9 @@ class _DefaultExpansionTileState extends State<DefaultExpansionTile> {
     widget.options.length,
         (index) {
       return InkWell(
-        onTap: widget.onTap,
+        onTap: (){
+          widget.onTap?.call(index);
+        },
         child: Container(
           width: double.infinity,
           alignment: Alignment.centerLeft,
