@@ -27,6 +27,13 @@ class DefaultButtonWidget extends StatelessWidget {
   final double? horizontalPadding;
   final double? verticalPadding;
   final TextStyle? textStyle;
+  final bool isTextCenter;
+  final double? textHeight;
+  final Widget? verticalWidget;
+  final Widget? child;
+  final double? elevation;
+
+
   const DefaultButtonWidget(
       {super.key,
         required this.onPressed,
@@ -50,6 +57,10 @@ class DefaultButtonWidget extends StatelessWidget {
         this.textFirst = false,
         this.textStyle,
         this.isLoading = false,
+        this.isTextCenter = true,
+        this.textHeight,
+        this.verticalWidget,
+        this.child, this.elevation,
       });
 
   @override
@@ -73,26 +84,33 @@ class DefaultButtonWidget extends StatelessWidget {
         side: withBorder
             ? WidgetStatePropertyAll(BorderSide(color: borderColor??ColorManager.lightGreen))
             : null,
+        elevation: WidgetStatePropertyAll(elevation ?? 0),
       ),
-      child: isLoading? const Center(child: CircularProgressIndicator(color: Colors.white,),) : Row(
-        mainAxisSize: MainAxisSize.min,
+      child: isLoading? const Center(child: CircularProgressIndicator(color: Colors.white,),) : child??Column(
         children: [
-          if(isIcon&&!textFirst)
-            _svgIcon(),
-          if(isIcon&&isText)
-            SizedBox(width: 20.w,),
-          if(isText)
-            Flexible(
-              child: Text(
-                text,
-                textAlign: TextAlign.center,
-                style: textStyle??getBoldStyle(fontSize: fontSize??20.sp, color: textColor??ColorManager.primary),
-              ),
-            ),
-          if(isIcon&&textFirst)
-            SizedBox(width: 20.w,),
-          if(isIcon&&textFirst)
-            _svgIcon(),
+          if(verticalWidget != null)
+            verticalWidget!,
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if(isIcon&&!textFirst)
+                _svgIcon(),
+              if(isIcon&&isText)
+                SizedBox(width: 20.w,),
+              if(isText)
+                Flexible(
+                  child: Text(
+                    text,
+                    textAlign: isTextCenter ? TextAlign.center : null,
+                    style: textStyle??getBoldStyle(fontSize: fontSize??20.sp, color: textColor??ColorManager.primary,height: textHeight),
+                  ),
+                ),
+              if(isIcon&&textFirst)
+                SizedBox(width: 20.w,),
+              if(isIcon&&textFirst)
+                _svgIcon(),
+            ],
+          ),
         ],
       ),
     );

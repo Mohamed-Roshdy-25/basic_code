@@ -31,6 +31,7 @@ class DefaultFormField extends StatelessWidget {
   final double? borderRadius;
   final String? prefixIconPath;
   final Color? borderColor;
+  final Color? fillColor;
 
 
   const DefaultFormField(
@@ -55,7 +56,7 @@ class DefaultFormField extends StatelessWidget {
         this.borderRadius,
         this.prefixIconPath,
         this.isUnderLine = false,
-        this.borderColor,
+        this.borderColor, this.fillColor,
       });
 
   @override
@@ -90,6 +91,8 @@ class DefaultFormField extends StatelessWidget {
       selectionHeightStyle: ui.BoxHeightStyle.includeLineSpacingMiddle,
       onTapOutside: withOnTapOutSide ? (event) => focusNode.unfocus() : null,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: fillColor,
         helperText: disableHelperText ? null : '',
         prefixIcon: prefixIconPath != null
             ? Container(
@@ -103,23 +106,23 @@ class DefaultFormField extends StatelessWidget {
         hintText: hintText,
         focusedBorder: isUnderLine ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor??ColorManager.primary),) : OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius??8.r),
-          borderSide: const BorderSide(color: ColorManager.primary),
+          borderSide: BorderSide(color: borderColor??ColorManager.primary),
         ),
         enabledBorder: isUnderLine ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor??ColorManager.primary),) : OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius??8.r),
-          borderSide: const BorderSide(color: ColorManager.primary),
+          borderSide: BorderSide(color: borderColor??ColorManager.primary),
         ),
         errorBorder: isUnderLine ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor??ColorManager.red),) : OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius??8.r),
-          borderSide: BorderSide(color: ColorManager.red, width: 2.w),
+          borderSide: BorderSide(color: borderColor??ColorManager.red, width: 2.w),
         ),
         focusedErrorBorder: isUnderLine ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor??ColorManager.red),) : OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius??8.r),
-          borderSide: BorderSide(color: ColorManager.red, width: 2.w),
+          borderSide: BorderSide(color: borderColor??ColorManager.red, width: 2.w),
         ),
         disabledBorder: isUnderLine ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor??ColorManager.grey),) : OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius??8.r),
-          borderSide: BorderSide(color: ColorManager.grey, width: 2.w),
+          borderSide: BorderSide(color: borderColor??ColorManager.grey, width: 2.w),
         ),
       ),
     );
