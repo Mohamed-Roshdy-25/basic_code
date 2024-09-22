@@ -17,4 +17,5 @@ class AppStrings {
   static const String add = "add";
   static const String showMore = "showMore";
   static const String showLess = "showLess";
+  static const String next = "next";
 }

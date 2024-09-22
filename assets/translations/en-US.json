@@ -9,5 +9,6 @@
   "save": "Save",
   "textFieldError": "This field is required",
   "showLess": "show less",
-  "showMore": "show more..."
+  "showMore": "show more...",
+  "next": "Next"
 }

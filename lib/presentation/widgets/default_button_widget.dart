@@ -87,6 +87,7 @@ class DefaultButtonWidget extends StatelessWidget {
         elevation: WidgetStatePropertyAll(elevation ?? 0),
       ),
       child: isLoading? const Center(child: CircularProgressIndicator(color: Colors.white,),) : child??Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           if(verticalWidget != null)
             verticalWidget!,
@@ -102,7 +103,7 @@ class DefaultButtonWidget extends StatelessWidget {
                   child: Text(
                     text,
                     textAlign: isTextCenter ? TextAlign.center : null,
-                    style: textStyle??getBoldStyle(fontSize: fontSize??20.sp, color: textColor??ColorManager.primary,height: textHeight),
+                    style: textStyle??getBoldStyle(fontSize: fontSize??15.sp, color: textColor??ColorManager.primary,height: textHeight),
                   ),
                 ),
               if(isIcon&&textFirst)
