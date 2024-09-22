@@ -1,5 +1,3 @@
-import 'package:basic_code_for_any_project/app/app_prefs.dart';
-import 'package:basic_code_for_any_project/app/di.dart';
 import 'package:basic_code_for_any_project/presentation/resources/color_manager.dart';
 import 'package:basic_code_for_any_project/presentation/resources/strings_manager.dart';
 import 'package:easy_localization/easy_localization.dart';

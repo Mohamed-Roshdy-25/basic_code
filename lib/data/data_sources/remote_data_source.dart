@@ -1,8 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:basic_code_for_any_project/app/app_prefs.dart';
 import 'package:basic_code_for_any_project/app/di.dart';
-import 'package:basic_code_for_any_project/data/network/dio_helper.dart';
-import 'package:basic_code_for_any_project/data/network/end_points.dart';
 
 
 abstract class RemoteDataSource {

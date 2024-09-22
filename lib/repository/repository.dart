@@ -1,8 +1,5 @@
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:basic_code_for_any_project/app/di.dart';
 import 'package:basic_code_for_any_project/data/data_sources/remote_data_source.dart';
-import 'package:basic_code_for_any_project/data/network/failure.dart';
-import 'package:dartz/dartz.dart';
 import 'package:basic_code_for_any_project/data/network/network_info.dart';
 
 

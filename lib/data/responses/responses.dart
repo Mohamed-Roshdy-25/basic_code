@@ -1,6 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages, prefer_typing_uninitialized_variables
 
-import 'package:json_annotation/json_annotation.dart';
 // part 'responses.g.dart';
 
 // login responses
