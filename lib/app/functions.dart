@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:intl/intl.dart';
@@ -47,17 +50,17 @@ class AppFunctions {
   }
 
   static Future<void> navigateTo(BuildContext context, Widget screen) async {
-    await Navigator.of(context).push(PageTransition(
+    await (Platform.isIOS ? Navigator.of(context).push(CupertinoPageRoute(builder: (context) => screen,)) : Navigator.of(context).push(PageTransition(
       child: screen,
       type: PageTransitionType.rightToLeft,
       alignment: Alignment.center,
       duration: const Duration(milliseconds: 500),
       reverseDuration: const Duration(milliseconds: 500),
-    ));
+    )));
   }
 
   static void navigateToAndReplacement(BuildContext context, Widget screen){
-    Navigator.of(context).pushReplacement(PageTransition(
+    Platform.isIOS ? Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context) => screen,)) :  Navigator.of(context).pushReplacement(PageTransition(
       child: screen,
       type: PageTransitionType.rightToLeft,
       alignment: Alignment.center,
@@ -67,7 +70,7 @@ class AppFunctions {
   }
 
   static void navigateToAndFinish(BuildContext context, Widget screen){
-    Navigator.of(context).pushAndRemoveUntil(PageTransition(
+    Platform.isIOS ? Navigator.of(context).pushAndRemoveUntil(CupertinoPageRoute(builder: (context) => screen,),(route) => false,) :  Navigator.of(context).pushAndRemoveUntil(PageTransition(
       child: screen,
       type: PageTransitionType.fade,
       alignment: Alignment.center,

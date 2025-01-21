@@ -63,6 +63,7 @@ dependencies:
   shimmer: ^3.0.0
   dropdown_button2: ^2.3.9
   dotted_border: ^2.1.0
+  cached_network_image: ^3.3.1
 
 
 

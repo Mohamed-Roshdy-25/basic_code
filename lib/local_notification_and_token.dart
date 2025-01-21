@@ -30,7 +30,7 @@ class GlobalMethods {
   }
 
   void configureLocalNotifications(RemoteMessage message, context) {
-    AndroidInitializationSettings androidInitializationSettings = const AndroidInitializationSettings('@mipmap/logo');
+    AndroidInitializationSettings androidInitializationSettings = const AndroidInitializationSettings('@mipmap/ic_launcher');
 
     DarwinInitializationSettings iOSInitializationSettings = const DarwinInitializationSettings();
 

@@ -79,14 +79,17 @@ class DefaultButtonWidget extends StatelessWidget {
             : ColorManager.white.withOpacity(.3)),
         minimumSize: horizontalPadding == null ? WidgetStatePropertyAll(Size(double.infinity,40.h)) : null,
         backgroundColor:
-        WidgetStateProperty.all(color ?? Colors.transparent),
+        WidgetStateProperty.all(isLoading ? ColorManager.greyBorder : color ?? Colors.transparent),
         shadowColor: WidgetStateProperty.all(Colors.transparent),
         side: withBorder
             ? WidgetStatePropertyAll(BorderSide(color: borderColor??ColorManager.lightGreen))
             : null,
         elevation: WidgetStatePropertyAll(elevation ?? 0),
       ),
-      child: isLoading? const Center(child: CircularProgressIndicator(color: Colors.white,),) : child??Column(
+      child: isLoading? SizedBox(
+        height: 20.w,
+          width: 20.w,
+          child: const Center(child: CircularProgressIndicator(color: Colors.white,),)) : child??Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           if(verticalWidget != null)
